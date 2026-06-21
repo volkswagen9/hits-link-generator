@@ -23,7 +23,7 @@ async def get_fuckingfast_link(session, download_url):
         response_text = await response.text()
         soup = BeautifulSoup(response_text, "html.parser")
         scripts = soup.find_all("script")
-        pattern = re.compile(r'https://fuckingfast.co/dl/[a-zA-Z0-9_-]+')
+        pattern = re.compile(r'https://dl\.fuckingfast\.co/dl/[a-zA-Z0-9_-]+')
         for script in scripts:
             if script.string:
                 match = pattern.search(script.string)
